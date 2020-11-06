@@ -17,7 +17,7 @@ libtest.so: libtest.c foo.h
 
 
 app_static: app.c foo.h libtest.a libfoo.so
-	gcc app.c -Wl,--whole-archive libtest.a  -Wl,--no-whole-archive -L. -lfoo -Wl,--rpath,. -o app
+	gcc app.c -Wl,--whole-archive libtest.a  -Wl,--no-whole-archive -L. -lfoo -Wl,--rpath,. -o app_static
 	
 app: app.c foo.h libtest.so libfoo.so libtool.so 
 	gcc app.c -L. -ltool -ltest -lfoo -Wl,--rpath,. -o app
